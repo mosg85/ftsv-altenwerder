@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTSV Altenwerder – Fußballclub seit 1918</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>🍪 Diese Website verwendet technisch notwendige Cookies. Für die Nutzung von Social-Media-Links und eingebetteten Inhalten benötigen wir deine Einwilligung. Du kannst deine Auswahl jederzeit ändern.</p>
+            <div class="cookie-buttons">
+                <button id="cookie-accept-all" class="cookie-btn cookie-btn-primary">Alle akzeptieren</button>
+                <button id="cookie-accept-essential" class="cookie-btn cookie-btn-secondary">Nur notwendige</button>
+                <button id="cookie-settings" class="cookie-btn cookie-btn-link">Einstellungen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="FTSV Altenwerder Logo">
+                <span>FTSV Altenwerder</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#teams">Mannschaften</a></li>
+                <li><a href="#schedule">Spiele & Ergebnisse</a></li>
+                <li><a href="#referee">Schiedsrichter</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">FTSV Altenwerder</h1>
+            <p class="hero-subtitle">Das 1918! • Leidenschaft • Gemeinschaft</p>
+            <a href="#about" class="btn">Vereinsheim entdecken</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Unser Verein</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>Gegründet 1918</strong>, sind wir mehr als nur ein Fußballclub.</p>
+                    <p style="font-size: 1.3rem; color: var(--secondary); margin: 1.5rem 0;">⭐ Unser Vereinsheim! Ein Traum wurde wahr. ⭐</p>
+                    <p>Herzstück ist der <strong>Sportpark Jägerhof</strong>.<br>Talweg 1, 21149 Hamburg<br>Tel.: 040-87933999</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat"><span class="stat-number">+300</span> Mitglieder</div>
+                    <div class="stat"><span class="stat-number">12</span> Mannschaften</div>
+                    <div class="stat"><span class="stat-number">4</span> Plätze</div>
+                    <div class="stat"><span class="stat-number">1918</span> Gegründet</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teams -->
+    <section id="teams" class="team">
+        <div class="container">
+            <h2 class="section-title">Unsere Mannschaften</h2>
+            <div class="team-grid">
+                <div class="player-card"><div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=Jugend')"></div><h3>Jugendabteilung</h3><p>Von der G- bis zur A-Jugend</p></div>
+                <div class="player-card"><div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=1.+Herren')"></div><h3>1. Herren</h3><p>Das Aushängeschild</p></div>
+                <div class="player-card"><div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=Alte+Herren')"></div><h3>Alte Herren</h3><p>Erfahrung und Spaß</p></div>
+                <div class="player-card"><div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=Freizeit')"></div><h3>Freizeitmannschaft</h3><p>Kicken ohne Leistungsdruck</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <section id="schedule" class="schedule">
+        <div class="container">
+            <h2 class="section-title">Ansetzungen & Ergebnisse</h2>
+            <div class="match-list">
+                <div class="match-card"><div class="match-date">[Datum]</div><div class="match-teams">FTSV Altenwerder – [Gegner]</div><div class="match-location"><i class="fas fa-map-marker-alt"></i> Sportpark Jägerhof</div></div>
+                <div class="match-card"><div class="match-date">[Datum]</div><div class="match-teams">[Gegner] – FTSV Altenwerder</div><div class="match-location"><i class="fas fa-map-marker-alt"></i> Auswärts</div></div>
+                <div class="match-card" style="border-left-color: #ffaa00;"><div class="match-date">Letztes Spiel</div><div class="match-teams">FTSV Altenwerder – [Gegner] 3:1</div><div class="match-location"><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Sieg!</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referee -->
+    <section id="referee" class="contact" style="background: rgba(255,49,49,0.1);">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--secondary);">⚽ Schiedsrichter gesucht! ⚽</h2>
+            <div style="max-width: 700px; margin: 0 auto; text-align: center; background: rgba(10,25,40,0.8); padding: 2rem; border-radius: 10px;">
+                <p style="font-size: 1.3rem;">„Moin, moin! Hier spricht Euer Schiedsrichterobmann <strong>Torsten Schümann</strong>.“</p>
+                <p>Unser Verein wächst – wir brauchen dringend Schiedsrichter/innen!</p>
+                <a href="#contact" class="btn" style="margin-top: 2rem;">Jetzt bei Torsten melden!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Kontakt & Anfahrt</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p><i class="fas fa-map-pin"></i> <strong>FTSV Altenwerder e.V.</strong><br>Sportpark Jägerhof, Talweg 1, 21149 Hamburg<br>Postfach 92 02 22, 21132 Hamburg</p>
+                    <p><i class="fas fa-phone"></i> 040-87933999</p>
+                    <p><i class="fas fa-envelope"></i> info@ftsv-altenwerder.de</p>
+                    <p><i class="fas fa-futbol"></i> 1. Vorsitzender: Torsten Müsse</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem; text-align: left;">
+                <div style="flex: 1; min-width: 250px;">
+                    <h4 style="color: var(--secondary);">Impressum</h4>
+                    <p style="color: #aaa;">
+                        <strong>FTSV Altenwerder e.V.</strong><br>Freier Turn- und Sportverein Altenwerder von 1918 e.V.<br>Postfach 92 02 22, 21132 Hamburg<br><br>
+                        <strong>1. Vorsitzender:</strong> Torsten Müsse<br>
+                        <strong>Kontakt:</strong> info@ftsv-altenwerder.de<br>
+                        <strong>Telefon:</strong> +49 40 87933999<br>
+                        <strong>Vereinsheim:</strong> Talweg 1, 21149 Hamburg
+                    </p>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                    <h4 style="color: var(--secondary);">Rechtliches</h4>
+                    <p style="color: #aaa;">
+                        <a href="#" style="color: var(--secondary);">Datenschutzerklärung</a><br>
+                        <a href="#" style="color: var(--secondary);">Impressum</a><br>
+                        <a href="#" style="color: var(--secondary);">DSGVO-Informationen</a>
+                    </p>
+                    <p style="color: #aaa; font-size: 0.9rem;">© 2025 FTSV Altenwerder e.V.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                    <h4 style="color: var(--secondary);">Folge uns</h4>
+                    <div class="social-links" style="justify-content: flex-start;">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
