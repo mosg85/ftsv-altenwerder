@@ -57,6 +57,7 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
+            transition: var(--transition);
         }
         .back-button:hover {
             background: var(--secondary);
@@ -71,7 +72,7 @@
     </style>
 </head>
 <body>
-    <!-- COOKIE-BANNER (wie gehabt) -->
+    <!-- COOKIE-BANNER -->
     <div id="cookie-banner" class="cookie-banner">
         <div class="cookie-content">
             <p>🍪 Diese Website verwendet technisch notwendige Cookies.</p>
@@ -132,35 +133,26 @@
     <script src="js/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Slug aus der URL holen (z.B. team.html?slug=1d)
             const urlParams = new URLSearchParams(window.location.search);
             const slug = urlParams.get('slug');
-            
             if (!slug) {
                 document.getElementById('team-title').textContent = 'Keine Mannschaft ausgewählt';
                 document.getElementById('team-content').innerHTML = '<p style="color: red;">Bitte wähle eine Mannschaft aus der Übersicht.</p>';
                 return;
             }
 
-            // Die entsprechende .md-Datei laden
             fetch(`content/teams/${slug}.md`)
                 .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Mannschaft nicht gefunden');
-                    }
+                    if (!response.ok) throw new Error('Mannschaft nicht gefunden');
                     return response.text();
                 })
                 .then(markdown => {
-                    // Frontmatter (YAML) und Inhalt trennen
                     const parts = markdown.split('---');
-                    if (parts.length < 3) {
-                        throw new Error('Ungültiges Dateiformat');
-                    }
-                    
+                    if (parts.length < 3) throw new Error('Ungültiges Dateiformat');
                     const yamlStr = parts[1];
                     const content = parts.slice(2).join('---').trim();
-                    
-                    // YAML parsen (einfache manuelle Methode)
+
+                    // YAML parsen
                     const yamlLines = yamlStr.split('\n');
                     const data = {};
                     yamlLines.forEach(line => {
@@ -170,29 +162,20 @@
                         }
                     });
 
-                    // Titel setzen
                     document.getElementById('team-title').textContent = data.title || slug;
-
-                    // HTML aus dem Markdown-Inhalt generieren
                     const htmlContent = marked.parse(content);
-
-                    // Bild (falls vorhanden)
                     let imageHtml = '';
-                    if (data.image) {
+                    if (data.image && data.image !== '#' && data.image !== '') {
                         imageHtml = `<img src="${data.image}" alt="${data.title}" class="team-detail-image">`;
                     }
-
-                    // Spieler-Liste (falls vorhanden)
                     let playersHtml = '';
                     if (data.players && Array.isArray(data.players)) {
                         playersHtml = '<h3>Kader</h3><ul class="player-list">';
                         data.players.forEach(player => {
-                            playersHtml += `<li><strong>${player.number}</strong> ${player.name} (${player.position})</li>`;
+                            playersHtml += `<li><strong>${player.number || ''}</strong> ${player.name || ''} ${player.position ? '('+player.position+')' : ''}</li>`;
                         });
                         playersHtml += '</ul>';
                     }
-
-                    // Alles zusammenbauen
                     document.getElementById('team-content').innerHTML = `
                         ${imageHtml}
                         <div class="team-detail-content">

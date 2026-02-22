@@ -16,28 +16,33 @@
             border-bottom: 3px solid var(--secondary);
             border-top: 1px solid rgba(255,49,49,0.3);
         }
-        
         .mannschaften-header h1 {
             font-size: 3rem;
             color: var(--secondary);
             text-shadow: 0 0 15px rgba(255,49,49,0.5);
         }
-        
         .mannschaften-header p {
             font-size: 1.2rem;
             color: #ddd;
             margin-top: 0.5rem;
         }
-        
-        /* Container für die dynamischen Karten */
+        /* Container für die dynamischen Karten (horizontales Grid) */
         #teams-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             padding: 2rem 0;
         }
-        
-        .team-card {
+        .team-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: var(--transition);
+        }
+        .team-card-link:hover {
+            transform: translateY(-5px);
+        }
+        .player-card {
             background: rgba(255,255,255,0.05);
             border-radius: 10px;
             overflow: hidden;
@@ -46,36 +51,31 @@
             padding-bottom: 1.5rem;
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255,49,49,0.2);
-            cursor: pointer;
-            text-decoration: none;
-            color: var(--accent);
-            display: block;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
-        
-        .team-card:hover {
+        .player-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(255,49,49,0.3);
         }
-        
-        .team-card-img {
+        .player-img {
             height: 200px;
             background-size: cover;
             background-position: center;
             margin-bottom: 1rem;
         }
-        
-        .team-card h3 {
+        .player-card h3 {
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
             color: var(--accent);
         }
-        
-        .team-card p {
+        .player-card p {
             color: var(--secondary);
             font-weight: 600;
             font-size: 1.1rem;
+            padding: 0 1rem;
         }
-        
         .loading {
             text-align: center;
             font-size: 1.5rem;
@@ -96,13 +96,12 @@
         </div>
     </div>
 
-    <!-- BANNER UND NAVIGATION (wie auf Hauptseite) -->
+    <!-- BANNER UND NAVIGATION -->
     <div class="banner-header">
         <img src="images/header-banner.png" alt="FTSV Altenwerder Banner" class="banner-image">
         <nav class="banner-nav">
             <div class="container nav-container">
                 <ul class="nav-menu" id="nav-menu">
-                    <!-- ACHTUNG: Hier verweisen wir auf die neue Seite teams.html -->
                     <li><a href="index.html#home">Home</a></li>
                     <li><a href="index.html#about">Über uns</a></li>
                     <li><a href="teams.html">Mannschaften</a></li>
@@ -140,7 +139,7 @@
     <footer>
         <div class="container">
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem; text-align: left;">
-                <!-- Impressum etc. – gleicher Inhalt wie in index.html -->
+                <!-- Impressum -->
                 <div style="flex: 1; min-width: 250px;">
                     <h4 style="color: var(--secondary);">Impressum</h4>
                     <p style="color: #aaa;">
@@ -151,6 +150,7 @@
                         <strong>Vereinsheim:</strong> Talweg 1, 21149 Hamburg
                     </p>
                 </div>
+                <!-- Rechtliches -->
                 <div style="flex: 1; min-width: 250px;">
                     <h4 style="color: var(--secondary);">Rechtliches</h4>
                     <p style="color: #aaa;">
@@ -162,6 +162,7 @@
                         🌐 Gehostet auf Servern von <strong>GitHub Inc.</strong>, USA.
                     </p>
                 </div>
+                <!-- Social Media -->
                 <div style="flex: 1; min-width: 250px;">
                     <h4 style="color: var(--secondary);">Folge uns</h4>
                     <div class="social-links" style="justify-content: flex-start;">
@@ -175,43 +176,44 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT FÜR MOBILES MENÜ UND COOKIE-BANNER (gleiches Skript) -->
+    <!-- JAVASCRIPT FÜR MOBILES MENÜ -->
     <script src="js/script.js"></script>
-    
-    <!-- SCRIPT ZUM LADEN DER MANNSCHAFTEN AUS content/teams/ -->
-    
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const container = document.getElementById('teams-container');
-        
-        fetch('content/teams/teams.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('teams.json nicht gefunden. Bitte zuerst generate_teams_json.py ausführen.');
-                }
-                return response.json();
-            })
-            .then(teams => {
-                let html = '';
-                teams.forEach(team => {
-                    // Platzhalter-Bild, falls kein Bild vorhanden
-                    const imgUrl = team.image || `https://via.placeholder.com/400x200/1e3c5c/ffffff?text=${encodeURIComponent(team.title)}`;
-                    html += `
-			<a href="team.html?slug=${team.slug}" class="team-card" style="text-decoration: none;">
-                            <div class="team-card-img" style="background-image: url('${imgUrl}')"></div>
-                            <h3>${team.title}</h3>
-                            <p>${team.description}</p>
-                        </a>
-                    `;
+    <!-- SCRIPT ZUM LADEN DER MANNSCHAFTEN -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('teams-container');
+            
+            fetch('content/teams/teams.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('teams.json nicht gefunden. Bitte zuerst generate_teams_json.py ausführen.');
+                    }
+                    return response.json();
+                })
+                .then(teams => {
+                    let html = '';
+                    teams.forEach(team => {
+                        // Bild-URL: falls vorhanden, sonst Platzhalter
+                        const imgUrl = team.image && team.image !== '#' && team.image !== ''
+                            ? team.image
+                            : `https://via.placeholder.com/400x200/1e3c5c/ffffff?text=${encodeURIComponent(team.title)}`;
+                        html += `
+                            <a href="team.html?slug=${team.slug}" class="team-card-link">
+                                <div class="player-card">
+                                    <div class="player-img" style="background-image: url('${imgUrl}')"></div>
+                                    <h3>${team.title}</h3>
+                                    <p>${team.description || ''}</p>
+                                </div>
+                            </a>
+                        `;
+                    });
+                    container.innerHTML = html;
+                })
+                .catch(error => {
+                    container.innerHTML = `<p style="color: red;">Fehler beim Laden der Mannschaften: ${error.message}</p>`;
+                    console.error(error);
                 });
-                container.innerHTML = html;
-                container.classList.remove('loading');
-            })
-            .catch(error => {
-                container.innerHTML = `<p style="color: red;">Fehler beim Laden der Mannschaften: ${error.message}</p>`;
-                console.error(error);
-            });
-    });
-</script>
+        });
+    </script>
 </body>
 </html>
