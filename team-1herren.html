@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Herren - FTSV Altenwerder</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* === SPEZIELLE STYLES FÜR DIE MANNSCHAFTSSEITE === */
+        .team-header {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, #0f2a40 100%);
+            padding: 3rem 0;
+            text-align: center;
+            border-bottom: 3px solid var(--secondary);
+        }
+        
+        .team-header h1 {
+            font-size: 3rem;
+            color: var(--secondary);
+            text-shadow: 0 0 15px rgba(255,49,49,0.5);
+        }
+        
+        .team-header p {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-top: 0.5rem;
+        }
+        
+        /* === MANNSCHAFTSFOTO === */
+        .team-photo {
+            width: 100%;
+            max-height: 500px;
+            overflow: hidden;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 3px solid var(--secondary);
+            box-shadow: 0 0 30px rgba(255,49,49,0.3);
+        }
+        
+        .team-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* === WIDGET-BEREICH === */
+        .widget-section {
+            background: rgba(10,25,40,0.5);
+            padding: 3rem 0;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        /* === ZURÜCK-KNOPF === */
+        .back-button {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.8rem 2rem;
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .back-button:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateX(-5px);
+        }
+        
+        .back-button i {
+            margin-right: 0.5rem;
+        }
+        
+        /* === MOBILE ANPASSUNGEN === */
+        @media (max-width: 768px) {
+            .team-header h1 {
+                font-size: 2rem;
+            }
+            .team-header {
+                margin-top: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================= -->
+    <!-- NAVIGATION (GLEICH WIE AUF DER HAUPTSEITE) -->
+    <!-- ========================================= -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="FTSV Altenwerder Logo">
+                <span>FTSV Altenwerder</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">Über uns</a></li>
+                <li><a href="index.html#teams">Mannschaften</a></li>
+                <li><a href="index.html#schedule">Spiele & Ergebnisse</a></li>
+                <li><a href="index.html#referee">Schiedsrichter</a></li>
+                <li><a href="index.html#contact">Kontakt</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================= -->
+    <!-- KOPFBEREICH DER MANNSCHAFTSSEITE -->
+    <!-- ========================================= -->
+    <div class="team-header">
+        <div class="container">
+            <h1>1. Herren</h1>
+            <p>Das Aushängeschild des FTSV Altenwerder</p>
+        </div>
+    </div>
+
+    <!-- ========================================= -->
+    <!-- HAUPTINHALT -->
+    <!-- ========================================= -->
+    <section class="team">
+        <div class="container">
+            <!-- ========================================= -->
+            <!-- MANNSCHAFTSFOTO (BITTE ERSETZEN) -->
+            <!-- ========================================= -->
+            <div class="team-photo">
+                <!-- TODO: Durch echtes Mannschaftsfoto ersetzen -->
+                <img src="https://via.placeholder.com/1200x500/1e3c5c/ffffff?text=Mannschaftsfoto+1.+Herren" alt="1. Herren Mannschaftsfoto">
+            </div>
+            
+            <!-- ========================================= -->
+            <!-- WIDGET-BEREICH MIT fussball.de NEWS -->
+            <!-- ========================================= -->
+            <div class="widget-section">
+                <h2 class="section-title">Aktuelle News & Spiele</h2>
+                
+                <!-- fussball.de Widget Skript (einmalig einbinden) -->
+                <script type="text/javascript" src="https://www.fussball.de/widgets.js"></script>
+                
+                <!-- Widget Container mit ID für News -->
+                <!-- ACHTUNG: Domain in fussball.de Konfiguration freigeben! -->
+                <div class="fussballde_widget"
+                     data-id="11374956-e72a-423d-ba14-c9c9964b0d6d"
+                     data-type="news"
+                     style="width: 100%">
+                </div>
+                
+                <!-- Hinweis für Besucher -->
+                <p style="text-align: center; margin-top: 2rem; color: #aaa;">
+                    Alle aktuellen News, Spielberichte und Ergebnisse gibt es hier automatisch von fussball.de.
+                </p>
+            </div>
+            
+            <!-- ========================================= -->
+            <!-- ZURÜCK-KNOPF ZUR HAUPTSEITE -->
+            <!-- ========================================= -->
+            <div style="text-align: center;">
+                <a href="index.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Zurück zur Hauptseite
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- FOOTER (GLEICH WIE AUF DER HAUPTSEITE) -->
+    <!-- ========================================= -->
+    <footer>
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem; text-align: left;">
+                <!-- Impressum Bereich -->
+                <div style="flex: 1; min-width: 250px;">
+                    <h4 style="color: var(--secondary);">Impressum</h4>
+                    <p style="color: #aaa;">
+                        <strong>FTSV Altenwerder e.V.</strong><br>Freier Turn- und Sportverein Altenwerder von 1918 e.V.<br>Postfach 92 02 22, 21132 Hamburg<br><br>
+                        <strong>1. Vorsitzender:</strong> Torsten Müsse<br>
+                        <strong>Kontakt:</strong> info@ftsv-altenwerder.de<br>
+                        <strong>Telefon:</strong> +49 40 87933999<br>
+                        <strong>Vereinsheim:</strong> Talweg 1, 21149 Hamburg
+                    </p>
+                </div>
+                <!-- Rechtlicher Bereich mit DSGVO-Hinweis -->
+                <div style="flex: 1; min-width: 250px;">
+                    <h4 style="color: var(--secondary);">Rechtliches</h4>
+                    <p style="color: #aaa;">
+                        <a href="#" style="color: var(--secondary);">Datenschutzerklärung</a><br>
+                        <a href="#" style="color: var(--secondary);">Impressum</a><br>
+                        <a href="#" style="color: var(--secondary);">DSGVO-Informationen</a>
+                    </p>
+                    <p style="color: #aaa; font-size: 0.9rem; margin-top: 1rem;">
+                        🌐 Gehostet auf Servern von <strong>GitHub Inc.</strong>, USA.
+                    </p>
+                </div>
+                <!-- Social Media Bereich -->
+                <div style="flex: 1; min-width: 250px;">
+                    <h4 style="color: var(--secondary);">Folge uns</h4>
+                    <div class="social-links" style="justify-content: flex-start;">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p style="color: #aaa; font-size: 0.9rem; margin-top: 1rem;">© 2025 FTSV Altenwerder e.V.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================= -->
+    <!-- JAVASCRIPT FÜR MOBILES MENÜ -->
+    <!-- ========================================= -->
+    <script src="js/script.js"></script>
+</body>
+</html>
