@@ -9,11 +9,12 @@
     <style>
         /* === SPEZIELLE STYLES FÜR DIE MANNSCHAFTSSEITE === */
         .team-header {
-            margin-top: 70px;
+            margin-top: 0; /* Banner ist oben, kein zusätzlicher Abstand */
             background: linear-gradient(135deg, var(--primary) 0%, #0f2a40 100%);
             padding: 3rem 0;
             text-align: center;
             border-bottom: 3px solid var(--secondary);
+            border-top: 1px solid rgba(255,49,49,0.3);
         }
         
         .team-header h1 {
@@ -76,43 +77,48 @@
         .back-button i {
             margin-right: 0.5rem;
         }
-        
-        /* === MOBILE ANPASSUNGEN === */
-        @media (max-width: 768px) {
-            .team-header h1 {
-                font-size: 2rem;
-            }
-            .team-header {
-                margin-top: 60px;
-            }
-        }
     </style>
 </head>
 <body>
     <!-- ========================================= -->
-    <!-- NAVIGATION (GLEICH WIE AUF DER HAUPTSEITE) -->
+    <!-- COOKIE-BANNER (DSGVO) - GLEICH WIE AUF HAUPTSEITE -->
     <!-- ========================================= -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="FTSV Altenwerder Logo">
-                <span>FTSV Altenwerder</span>
-            </a>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#about">Über uns</a></li>
-                <li><a href="index.html#teams">Mannschaften</a></li>
-                <li><a href="index.html#schedule">Spiele & Ergebnisse</a></li>
-                <li><a href="index.html#referee">Schiedsrichter</a></li>
-                <li><a href="index.html#contact">Kontakt</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>🍪 Diese Website verwendet technisch notwendige Cookies. Für die Nutzung von Social-Media-Links und eingebetteten Inhalten benötigen wir deine Einwilligung. Du kannst deine Auswahl jederzeit ändern.</p>
+            <div class="cookie-buttons">
+                <button id="cookie-accept-all" class="cookie-btn cookie-btn-primary">Alle akzeptieren</button>
+                <button id="cookie-accept-essential" class="cookie-btn cookie-btn-secondary">Nur notwendige</button>
+                <button id="cookie-settings" class="cookie-btn cookie-btn-link">Einstellungen</button>
             </div>
         </div>
-    </nav>
+    </div>
+
+    <!-- ========================================= -->
+    <!-- BANNER-HEADER (GLEICH WIE AUF HAUPTSEITE) -->
+    <!-- ========================================= -->
+    <div class="banner-header">
+        <img src="images/header-banner.png" alt="FTSV Altenwerder Banner" class="banner-image">
+        
+        <!-- Navigation unter dem Banner -->
+        <nav class="banner-nav">
+            <div class="container nav-container">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about">Über uns</a></li>
+                    <li><a href="index.html#teams">Mannschaften</a></li>
+                    <li><a href="index.html#schedule">Spiele & Ergebnisse</a></li>
+                    <li><a href="index.html#referee">Schiedsrichter</a></li>
+                    <li><a href="index.html#contact">Kontakt</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </div>
 
     <!-- ========================================= -->
     <!-- KOPFBEREICH DER MANNSCHAFTSSEITE -->
@@ -147,7 +153,6 @@
                 <script type="text/javascript" src="https://www.fussball.de/widgets.js"></script>
                 
                 <!-- Widget Container mit ID für News -->
-                <!-- ACHTUNG: Domain in fussball.de Konfiguration freigeben! -->
                 <div class="fussballde_widget"
                      data-id="11374956-e72a-423d-ba14-c9c9964b0d6d"
                      data-type="news"
@@ -172,7 +177,7 @@
     </section>
 
     <!-- ========================================= -->
-    <!-- FOOTER (GLEICH WIE AUF DER HAUPTSEITE) -->
+    <!-- FOOTER (GLEICH WIE AUF HAUPTSEITE) -->
     <!-- ========================================= -->
     <footer>
         <div class="container">
@@ -188,7 +193,7 @@
                         <strong>Vereinsheim:</strong> Talweg 1, 21149 Hamburg
                     </p>
                 </div>
-                <!-- Rechtlicher Bereich mit DSGVO-Hinweis -->
+                <!-- Rechtliches mit DSGVO-Hinweis -->
                 <div style="flex: 1; min-width: 250px;">
                     <h4 style="color: var(--secondary);">Rechtliches</h4>
                     <p style="color: #aaa;">
@@ -200,7 +205,7 @@
                         🌐 Gehostet auf Servern von <strong>GitHub Inc.</strong>, USA.
                     </p>
                 </div>
-                <!-- Social Media Bereich -->
+                <!-- Social Media -->
                 <div style="flex: 1; min-width: 250px;">
                     <h4 style="color: var(--secondary);">Folge uns</h4>
                     <div class="social-links" style="justify-content: flex-start;">
@@ -215,7 +220,7 @@
     </footer>
 
     <!-- ========================================= -->
-    <!-- JAVASCRIPT FÜR MOBILES MENÜ -->
+    <!-- JAVASCRIPT (COOKIE-BANNER & MOBILES MENÜ) -->
     <!-- ========================================= -->
     <script src="js/script.js"></script>
 </body>
