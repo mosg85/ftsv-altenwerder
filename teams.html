@@ -197,7 +197,7 @@
                     // Platzhalter-Bild, falls kein Bild vorhanden
                     const imgUrl = team.image || `https://via.placeholder.com/400x200/1e3c5c/ffffff?text=${encodeURIComponent(team.title)}`;
                     html += `
-                        <a href="team-template.html?slug=${team.slug}" class="team-card" style="text-decoration: none;">
+			<a href="team.html?slug=${team.slug}" class="team-card" style="text-decoration: none;">
                             <div class="team-card-img" style="background-image: url('${imgUrl}')"></div>
                             <h3>${team.title}</h3>
                             <p>${team.description}</p>
