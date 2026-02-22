@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Cookie Banner -->
+    <!-- ========================================= -->
+    <!-- COOKIE-BANNER (DSGVO) -->
+    <!-- ========================================= -->
     <div id="cookie-banner" class="cookie-banner">
         <div class="cookie-content">
             <p>🍪 Diese Website verwendet technisch notwendige Cookies. Für die Nutzung von Social-Media-Links und eingebetteten Inhalten benötigen wir deine Einwilligung. Du kannst deine Auswahl jederzeit ändern.</p>
@@ -20,7 +22,9 @@
         </div>
     </div>
 
-    <!-- Navigation -->
+    <!-- ========================================= -->
+    <!-- NAVIGATION (FIXIERT) -->
+    <!-- ========================================= -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">
@@ -43,7 +47,9 @@
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- ========================================= -->
+    <!-- HERO-BEREICH (STARTSEITE) -->
+    <!-- ========================================= -->
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -53,7 +59,9 @@
         </div>
     </section>
 
-    <!-- About -->
+    <!-- ========================================= -->
+    <!-- ÜBER UNS (MIT VEREINSHEIM) -->
+    <!-- ========================================= -->
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">Unser Verein</h2>
@@ -73,41 +81,79 @@
         </div>
     </section>
 
-    <!-- Teams -->
+    <!-- ========================================= -->
+    <!-- MANNSCHAFTSÜBERSICHT (MIT KLICKBARER 1. HERREN) -->
+    <!-- ========================================= -->
     <section id="teams" class="team">
         <div class="container">
             <h2 class="section-title">Unsere Mannschaften</h2>
             <div class="team-grid">
-                <div class="player-card"><div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=Jugend')"></div><h3>Jugendabteilung</h3><p>Von der G- bis zur A-Jugend</p></div>
-                <div class="player-card"><div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=1.+Herren')"></div><h3>1. Herren</h3><p>Das Aushängeschild</p></div>
-                <div class="player-card"><div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=Alte+Herren')"></div><h3>Alte Herren</h3><p>Erfahrung und Spaß</p></div>
-                <div class="player-card"><div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=Freizeit')"></div><h3>Freizeitmannschaft</h3><p>Kicken ohne Leistungsdruck</p></div>
+                <!-- 1. Herren - Klickbar (führt zu team-1herren.html) -->
+                <a href="team-1herren.html" style="text-decoration: none; color: inherit;">
+                    <div class="player-card">
+                        <div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=1.+Herren')"></div>
+                        <h3>1. Herren</h3>
+                        <p>Das Aushängeschild</p>
+                    </div>
+                </a>
+                
+                <!-- Jugendabteilung (noch nicht verlinkt) -->
+                <div class="player-card">
+                    <div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=Jugend')"></div>
+                    <h3>Jugendabteilung</h3>
+                    <p>Von der G- bis zur A-Jugend</p>
+                </div>
+                
+                <!-- Alte Herren (noch nicht verlinkt) -->
+                <div class="player-card">
+                    <div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=Alte+Herren')"></div>
+                    <h3>Alte Herren</h3>
+                    <p>Erfahrung und Spaß</p>
+                </div>
+                
+                <!-- Freizeitmannschaft (noch nicht verlinkt) -->
+                <div class="player-card">
+                    <div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=Freizeit')"></div>
+                    <h3>Freizeitmannschaft</h3>
+                    <p>Kicken ohne Leistungsdruck</p>
+                </div>
             </div>
         </div>
     </section>
 
-<!-- Schedule mit fussball.de Widget -->
-<section id="schedule" class="schedule">
-    <div class="container">
-        <h2 class="section-title">Nächstes Spiel</h2>
-        
-        <!-- fussball.de Widget Script (einmalig) -->
-        <script type="text/javascript" src="https://www.fussball.de/widgets.js"></script>
-        
-        <!-- Widget Container für das nächste Spiel -->
-    <div 
-  class="fussballde_widget"
-  data-id="d4b55df8-cd49-4f03-bafb-3e5673272b80"
-  data-type="next-match"
-  style="width: 100%"
-  ></div>    
-        <!-- Kleiner Hinweis, falls du mehr anzeigen möchtest -->
-        <p style="text-align: center; margin-top: 1.5rem; color: #aaa;">
-            Alle Ergebnisse und Spielpläne gibt es auf <a href="https://www.fussball.de/verein/altenwerder-hamburg/-/id/00ES8GN8I400003SVV0AG08LVUPGND5I" target="_blank" style="color: var(--secondary);">fussball.de</a>.
-        </p>
-    </div>
-</section>
-    <!-- Referee -->
+    <!-- ========================================= -->
+    <!-- SPIELPLAN & ERGEBNISSE (WIRD SPÄTER DURCH WIDGET ERSETZT) -->
+    <!-- ========================================= -->
+    <section id="schedule" class="schedule">
+        <div class="container">
+            <h2 class="section-title">Nächste Spiele (Test)</h2>
+            <div class="match-list">
+                <!-- TODO: Hier kommt später das fussball.de Widget rein -->
+                <div class="match-card">
+                    <div class="match-date">15.03.2025 · 15:00</div>
+                    <div class="match-teams"><strong>FTSV Altenwerder</strong> – SC Vier- und Marschlande</div>
+                    <div class="match-location"><i class="fas fa-map-marker-alt"></i> Sportpark Jägerhof</div>
+                </div>
+                <div class="match-card">
+                    <div class="match-date">22.03.2025 · 14:30</div>
+                    <div class="match-teams">FC Neuenfelde – <strong>FTSV Altenwerder</strong></div>
+                    <div class="match-location"><i class="fas fa-map-marker-alt"></i> Sportplatz Neuenfelde</div>
+                </div>
+                <div class="match-card">
+                    <div class="match-date">29.03.2025 · 15:00</div>
+                    <div class="match-teams"><strong>FTSV Altenwerder</strong> – SV Lurup</div>
+                    <div class="match-location"><i class="fas fa-map-marker-alt"></i> Sportpark Jägerhof</div>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 1.5rem; color: #aaa;">
+                * Platzhalter – wird durch echtes Widget ersetzt.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SCHIEDSRICHTER-GESUCHT (AUFRUF VON TORSTEN) -->
+    <!-- ========================================= -->
     <section id="referee" class="contact" style="background: rgba(255,49,49,0.1);">
         <div class="container">
             <h2 class="section-title" style="color: var(--secondary);">⚽ Schiedsrichter gesucht! ⚽</h2>
@@ -119,7 +165,9 @@
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- ========================================= -->
+    <!-- KONTAKT & ADRESSE -->
+    <!-- ========================================= -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Kontakt & Anfahrt</h2>
@@ -139,11 +187,13 @@
         </div>
     </section>
 
-    <!-- Footer mit Impressum, DSGVO-Links und Hosting-Hinweis -->
+    <!-- ========================================= -->
+    <!-- FOOTER MIT IMPRESSUM, DSGVO UND HOSTING-HINWEIS -->
+    <!-- ========================================= -->
     <footer>
         <div class="container">
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem; text-align: left;">
-                <!-- Impressum -->
+                <!-- Impressum Bereich -->
                 <div style="flex: 1; min-width: 250px;">
                     <h4 style="color: var(--secondary);">Impressum</h4>
                     <p style="color: #aaa;">
@@ -154,7 +204,7 @@
                         <strong>Vereinsheim:</strong> Talweg 1, 21149 Hamburg
                     </p>
                 </div>
-                <!-- Rechtliches + Hosting-Hinweis -->
+                <!-- Rechtliches mit DSGVO-Hinweis -->
                 <div style="flex: 1; min-width: 250px;">
                     <h4 style="color: var(--secondary);">Rechtliches</h4>
                     <p style="color: #aaa;">
@@ -180,6 +230,9 @@
         </div>
     </footer>
 
+    <!-- ========================================= -->
+    <!-- JAVASCRIPT (COOKIE-BANNER & MOBILES MENÜ) -->
+    <!-- ========================================= -->
     <script src="js/script.js"></script>
 </body>
 </html>
