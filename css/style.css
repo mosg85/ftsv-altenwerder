@@ -13,7 +13,7 @@ body {
 }
 .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 2rem 0; }
 
-/* ===== БАННЕР И НАВИГАЦИЯ (ОБЩИЕ ДЛЯ ВСЕХ СТРАНИЦ) ===== */
+/* ===== BANNER-HEADER ===== */
 .banner-header {
     width: 100%;
     position: relative;
@@ -36,8 +36,6 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
-    margin: 0;
-    padding: 0;
 }
 .nav-container {
     width: 90%;
@@ -81,7 +79,7 @@ body {
 .nav-menu a:hover::before { height: 100%; }
 .nav-menu a:hover { color: var(--primary); }
 
-/* Гамбургер для мобильных */
+/* Hamburger für Mobile */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -128,27 +126,60 @@ body {
 .cookie-btn-secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
 .cookie-btn-link { background: transparent; color: var(--secondary); text-decoration: underline; }
 
-/* ===== HERO (ТОЛЬКО ДЛЯ ГЛАВНОЙ) ===== */
-
-
+/* ===== NEUER HERO MIT IMG-TAG ===== */
 .hero {
+    position: relative;
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.1)), url('../images/jaegerhof_bg.png') left/cover fixed;
+    width: 100%;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* Bild füllt immer den gesamten Bereich */
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.2);
+    z-index: -1;
+}
+
+.hero-content {
     position: relative;
+    z-index: 1;
+    animation: fadeInUp 1.2s ease;
+    color: var(--accent);
+    padding: 0 1rem;
 }
 
 .hero-title {
     font-size: 4rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
     text-shadow: 0 0 20px var(--secondary);
 }
+
 .hero-subtitle {
     font-size: 1.5rem;
+    margin-bottom: 2rem;
     color: var(--secondary);
 }
+
 .btn {
     display: inline-block;
     background: var(--secondary);
@@ -158,10 +189,11 @@ body {
     text-decoration: none;
     font-weight: 600;
     border: 2px solid var(--secondary);
+    transition: var(--transition);
 }
-.btn:hover { background: transparent; color: var(--secondary); }
+.btn:hover { background: transparent; color: var(--secondary); transform: scale(1.05); }
 
-/* ===== ЗАГОЛОВКИ СЕКЦИЙ ===== */
+/* ===== SECTION TITLES ===== */
 .section-title {
     font-size: 2.5rem;
     text-align: center;
@@ -179,7 +211,21 @@ body {
     background: var(--secondary);
 }
 
-/* ===== ОБЩИЕ СТИЛИ ДЛЯ КАРТОЧЕК КОМАНД ===== */
+/* ===== ABOUT ===== */
+.about { background: var(--primary); padding: 4rem 0; }
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+.about-text p { margin-bottom: 1.5rem; font-size: 1.1rem; color: #ddd; }
+.about-stats { display: flex; flex-direction: column; gap: 2rem; }
+.stat { text-align: center; font-size: 1.2rem; color: var(--accent); }
+.stat-number { display: block; font-size: 3rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.5rem; }
+
+/* ===== TEAM CARDS ===== */
+.team { background: rgba(255,255,255,0.02); padding: 4rem 0; }
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -188,10 +234,12 @@ body {
 .player-card {
     background: rgba(255,255,255,0.05);
     border-radius: 10px;
+    overflow: hidden;
+    transition: var(--transition);
     text-align: center;
     padding-bottom: 1.5rem;
+    backdrop-filter: blur(5px);
     border: 1px solid rgba(255,49,49,0.2);
-    transition: var(--transition);
 }
 .player-card:hover {
     transform: translateY(-10px);
@@ -203,104 +251,63 @@ body {
     background-position: center;
     margin-bottom: 1rem;
 }
-.player-card h3 { font-size: 1.5rem; color: var(--accent); }
-.player-card p { color: var(--secondary); }
+.player-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--accent); }
+.player-card p { color: var(--secondary); font-weight: 600; }
 
-/* ===== СТИЛИ ДЛЯ СТРАНИЦ КОМАНД ===== */
-.page-header {
-    margin-top: 0;
-    background: linear-gradient(135deg, var(--primary) 0%, #0f2a40 100%);
-    padding: 3rem 0;
-    text-align: center;
-    border-bottom: 3px solid var(--secondary);
-    border-top: 1px solid rgba(255,49,49,0.3);
-}
-.page-header h1 {
-    font-size: 3rem;
-    color: var(--secondary);
-    text-shadow: 0 0 15px rgba(255,49,49,0.5);
-}
-.page-header p {
-    font-size: 1.2rem;
-    color: #ddd;
-    margin-top: 0.5rem;
-}
-
-.team-photo {
-    width: 100%;
-    max-height: 500px;
-    overflow: hidden;
-    border-radius: 15px;
-    margin: 2rem 0;
-    border: 3px solid var(--secondary);
-    box-shadow: 0 0 30px rgba(255,49,49,0.3);
-}
-.team-photo img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.widget-section {
-    background: rgba(10,25,40,0.5);
-    padding: 3rem 0;
-    border-radius: 15px;
-    margin: 2rem 0;
-}
-
-.back-button {
-    display: inline-block;
-    margin: 2rem 0;
-    padding: 0.8rem 2rem;
-    background: transparent;
-    color: var(--secondary);
-    border: 2px solid var(--secondary);
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
+/* ===== SCHEDULE ===== */
+.schedule { padding: 4rem 0; background: var(--primary); }
+.match-list { display: flex; flex-direction: column; gap: 1rem; max-width: 700px; margin: 0 auto; }
+.match-card {
+    background: rgba(255,255,255,0.05);
+    border-left: 5px solid var(--secondary);
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
     transition: var(--transition);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
-.back-button:hover {
-    background: var(--secondary);
-    color: var(--primary);
-    transform: translateX(-5px);
-}
-.back-button i { margin-right: 0.5rem; }
+.match-card:hover { background: rgba(255,49,49,0.1); transform: scale(1.02); }
+.match-date { font-weight: 600; color: var(--secondary); min-width: 150px; }
+.match-teams { font-size: 1.2rem; font-weight: 500; flex: 1; margin: 0 1rem; }
+.match-location i { color: var(--secondary); margin-right: 0.3rem; }
+
+/* ===== CONTACT ===== */
+.contact { padding: 4rem 0; background: rgba(0,0,0,0.3); }
+.contact-content { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+.contact-info { text-align: center; font-size: 1.2rem; }
+.contact-info i { color: var(--secondary); margin-right: 0.5rem; }
+.social-links { display: flex; gap: 2rem; }
+.social-links a { color: var(--accent); font-size: 2rem; transition: var(--transition); }
+.social-links a:hover { color: var(--secondary); transform: translateY(-5px); }
 
 /* ===== FOOTER ===== */
-footer {
-    background: #0a0f1a;
-    padding: 2rem 0;
-    color: #aaa;
-}
-footer h4 {
-    color: var(--secondary);
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-}
-footer a { color: var(--secondary); text-decoration: none; }
-footer a:hover { text-decoration: underline; }
+footer { background: #0a0f1a; text-align: center; padding: 1rem 0; color: #aaa; }
+footer h4 { font-size: 1.2rem; margin-bottom: 1rem; letter-spacing: 1px; }
+footer a:hover { text-decoration: underline !important; }
 
-/* ===== fussball.de WIDGET ===== */
-.fussballde_widget {
-    background: rgba(255,255,255,0.05);
-    border-radius: 10px;
-    padding: 1rem;
-    margin-top: 1rem;
+/* ===== ANIMATION ===== */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
+
+/* ===== WIDGET STYLES ===== */
+.fussballde_widget { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 1rem; margin-top: 1rem; }
 .fussballde_widget iframe { border-radius: 8px; }
 
-/* ===== МОБИЛЬНАЯ ВЕРСИЯ ===== */
+/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
     .banner-image { max-height: 120px; }
     .banner-nav { height: 50px; }
-    
+
     .hamburger { display: flex; }
-    
+
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 170px; /* Высота баннера + навигации */
+        top: 170px;
         flex-direction: column;
         background: var(--primary);
         width: 100%;
@@ -313,13 +320,18 @@ footer a:hover { text-decoration: underline; }
     .nav-menu li { margin: 1rem 0; height: auto; }
     .nav-menu a { height: auto; padding: 0.5rem 1rem; }
     .nav-menu a::before { display: none; }
-    
+
     .hero-title { font-size: 2.5rem; }
     .hero-subtitle { font-size: 1.2rem; }
-    
-    .page-header h1 { font-size: 2rem; }
-    
-    .hamburger.active .bar:nth-child(1) { transform: rotate(45deg) translate(8px, 6px); }
-    .hamburger.active .bar:nth-child(2) { opacity: 0; }
-    .hamburger.active .bar:nth-child(3) { transform: rotate(-45deg) translate(8px, -6px); }
+
+    .about-content { grid-template-columns: 1fr; }
+
+    .match-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .match-teams { margin: 0.5rem 0; }
+
+    footer > div > div { flex-direction: column; text-align: center !important; }
+    footer .social-links { justify-content: center !important; }
+
+    .cookie-content { flex-direction: column; align-items: flex-start; }
+    .cookie-buttons { width: 100%; justify-content: center; }
 }

@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <!-- БАННЕР И НАВИГАЦИЯ (ОБЩИЙ БЛОК) -->
+    <!-- BANNER-HEADER (GLEICH BLEIBEND) -->
     <div class="banner-header">
         <img src="images/header-banner.png" alt="FTSV Altenwerder Banner" class="banner-image">
         <nav class="banner-nav">
@@ -27,7 +27,7 @@
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="index.html#home">Home</a></li>
                     <li><a href="index.html#about">Über uns</a></li>
-		    <li><a href="teams.html">Mannschaften</a></li>
+                    <li><a href="teams.html">Mannschaften</a></li>
                     <li><a href="index.html#schedule">Spiele</a></li>
                     <li><a href="index.html#referee">Schiedsrichter</a></li>
                     <li><a href="index.html#contact">Kontakt</a></li>
@@ -41,8 +41,11 @@
         </nav>
     </div>
 
-    <!-- HERO -->
+    <!-- ========================================= -->
+    <!-- NEUER HERO-BEREICH MIT <img>-TAG          -->
+    <!-- ========================================= -->
     <section id="home" class="hero">
+        <img src="images/jaegerhof_bg.png" alt="Sportpark Jägerhof" class="hero-image">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">FTSV Altenwerder</h1>
@@ -51,52 +54,126 @@
         </div>
     </section>
 
-    <!-- ОСТАЛЬНЫЕ СЕКЦИИ (БЕЗ ИЗМЕНЕНИЙ) -->
+    <!-- ÜBER UNS -->
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">Unser Verein</h2>
             <div class="about-content">
                 <div class="about-text">
                     <p><strong>Gegründet 1918</strong>, sind wir mehr als nur ein Fußballclub.</p>
-                    <p style="font-size: 1.3rem; color: var(--secondary);">⭐ Unser Vereinsheim! Ein Traum wurde wahr. ⭐</p>
-                    <p>Sportpark Jägerhof<br>Talweg 1, 21149 Hamburg</p>
+                    <p style="font-size: 1.3rem; color: var(--secondary); margin: 1.5rem 0;">⭐ Unser Vereinsheim! Ein Traum wurde wahr. ⭐</p>
+                    <p>Herzstück ist der <strong>Sportpark Jägerhof</strong>.<br>Talweg 1, 21149 Hamburg<br>Tel.: 040-87933999</p>
                 </div>
                 <div class="about-stats">
                     <div class="stat"><span class="stat-number">+300</span> Mitglieder</div>
                     <div class="stat"><span class="stat-number">12</span> Mannschaften</div>
+                    <div class="stat"><span class="stat-number">4</span> Plätze</div>
+                    <div class="stat"><span class="stat-number">1918</span> Gegründet</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- MANNSCHAFTSÜBERSICHT -->
     <section id="teams" class="team">
         <div class="container">
             <h2 class="section-title">Unsere Mannschaften</h2>
             <div class="team-grid">
-                <a href="team-1herren.html" style="text-decoration: none; color: inherit;">
+                <a href="teams.html" style="text-decoration: none; color: inherit;">
                     <div class="player-card">
                         <div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=1.+Herren')"></div>
                         <h3>1. Herren</h3>
                         <p>Das Aushängeschild</p>
                     </div>
                 </a>
-                <!-- Другие команды -->
+                <a href="teams.html" style="text-decoration: none; color: inherit;">
+                    <div class="player-card">
+                        <div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=Jugend')"></div>
+                        <h3>Jugendabteilung</h3>
+                        <p>Von der G- bis zur A-Jugend</p>
+                    </div>
+                </a>
+                <a href="teams.html" style="text-decoration: none; color: inherit;">
+                    <div class="player-card">
+                        <div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=Alte+Herren')"></div>
+                        <h3>Alte Herren</h3>
+                        <p>Erfahrung und Spaß</p>
+                    </div>
+                </a>
+                <a href="teams.html" style="text-decoration: none; color: inherit;">
+                    <div class="player-card">
+                        <div class="player-img" style="background-image: url('https://via.placeholder.com/300x300/1e3c5c/ffffff?text=Freizeit')"></div>
+                        <h3>Freizeitmannschaft</h3>
+                        <p>Kicken ohne Leistungsdruck</p>
+                    </div>
+                </a>
             </div>
+            <p style="text-align: center; margin-top: 2rem;">
+                <a href="teams.html" class="btn">Alle Mannschaften anzeigen</a>
+            </p>
         </div>
     </section>
 
+    <!-- SPIELPLAN (WIDGET) -->
     <section id="schedule" class="schedule">
         <div class="container">
             <h2 class="section-title">Nächstes Spiel</h2>
             <script type="text/javascript" src="https://www.fussball.de/widgets.js"></script>
-            <div class="fussballde_widget" data-id="d4b55df8-cd49-4f03-bafb-3e5673272b80" data-type="next-match" style="width: 100%"></div>
+            <div class="fussballde_widget"
+                 data-id="d4b55df8-cd49-4f03-bafb-3e5673272b80"
+                 data-type="next-match"
+                 style="width: 100%">
+            </div>
+            <p style="text-align: center; margin-top: 1.5rem; color: #aaa;">
+                Alle Ergebnisse: <a href="https://www.fussball.de/verein/altenwerder-hamburg/-/id/00ES8GN8I400003SVV0AG08LVUPGND5I" target="_blank" style="color: var(--secondary);">fussball.de</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- SCHIEDSRICHTER-GESUCHT -->
+    <section id="referee" class="contact" style="background: rgba(255,49,49,0.1);">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--secondary);">⚽ Schiedsrichter gesucht! ⚽</h2>
+            <div style="max-width: 700px; margin: 0 auto; text-align: center; background: rgba(10,25,40,0.8); padding: 2rem; border-radius: 10px;">
+                <p style="font-size: 1.3rem;">„Moin, moin! Hier spricht Euer Schiedsrichterobmann <strong>Torsten Schümann</strong>.“</p>
+                <p>Unser Verein wächst – wir brauchen dringend Schiedsrichter/innen!</p>
+                <a href="#contact" class="btn" style="margin-top: 2rem;">Jetzt melden!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Kontakt & Anfahrt</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p><i class="fas fa-map-pin"></i> <strong>FTSV Altenwerder e.V.</strong><br>Sportpark Jägerhof, Talweg 1, 21149 Hamburg</p>
+                    <p><i class="fas fa-phone"></i> 040-87933999</p>
+                    <p><i class="fas fa-envelope"></i> info@ftsv-altenwerder.de</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>© 2025 FTSV Altenwerder e.V. | 🌐 Gehostet auf GitHub Inc., USA</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+                <div style="flex:1; min-width:250px;">
+                    <h4 style="color: var(--secondary);">Impressum</h4>
+                    <p style="color:#aaa;">FTSV Altenwerder e.V.<br>Postfach 92 02 22, 21132 Hamburg<br>1. Vorsitzender: Torsten Müsse</p>
+                </div>
+                <div style="flex:1; min-width:250px;">
+                    <h4 style="color: var(--secondary);">Rechtliches</h4>
+                    <p style="color:#aaa;">Datenschutz · Impressum · DSGVO<br>🌐 Gehostet auf GitHub Inc., USA</p>
+                </div>
+            </div>
         </div>
     </footer>
 
