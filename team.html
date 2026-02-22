@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mannschaft - FTSV Altenwerder</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        .team-detail-header {
+            margin-top: 0;
+            background: linear-gradient(135deg, var(--primary) 0%, #0f2a40 100%);
+            padding: 3rem 0;
+            text-align: center;
+            border-bottom: 3px solid var(--secondary);
+        }
+        .team-detail-header h1 {
+            font-size: 3rem;
+            color: var(--secondary);
+        }
+        .team-detail-content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+        }
+        .team-detail-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border: 3px solid var(--secondary);
+        }
+        .player-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .player-list li {
+            background: rgba(255,49,49,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border-left: 3px solid var(--secondary);
+        }
+        .back-button {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.8rem 2rem;
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-button:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        .loading {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            padding: 4rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- COOKIE-BANNER (wie gehabt) -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>🍪 Diese Website verwendet technisch notwendige Cookies.</p>
+            <div class="cookie-buttons">
+                <button id="cookie-accept-all" class="cookie-btn cookie-btn-primary">Alle akzeptieren</button>
+                <button id="cookie-accept-essential" class="cookie-btn cookie-btn-secondary">Nur notwendige</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BANNER UND NAVIGATION -->
+    <div class="banner-header">
+        <img src="images/header-banner.png" alt="FTSV Altenwerder Banner" class="banner-image">
+        <nav class="banner-nav">
+            <div class="container nav-container">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about">Über uns</a></li>
+                    <li><a href="teams.html">Mannschaften</a></li>
+                    <li><a href="index.html#schedule">Spiele</a></li>
+                    <li><a href="index.html#referee">Schiedsrichter</a></li>
+                    <li><a href="index.html#contact">Kontakt</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- DYNAMISCHER INHALT -->
+    <div class="team-detail-header">
+        <div class="container">
+            <h1 id="team-title">Lade Mannschaft...</h1>
+        </div>
+    </div>
+
+    <section class="team">
+        <div class="container">
+            <div id="team-content" class="loading">
+                Lade Daten...
+            </div>
+            <div style="text-align: center;">
+                <a href="teams.html" class="back-button">← Zurück zur Übersicht</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>© 2025 FTSV Altenwerder e.V. | 🌐 Gehostet auf GitHub Inc., USA</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Slug aus der URL holen (z.B. team.html?slug=1d)
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug');
+            
+            if (!slug) {
+                document.getElementById('team-title').textContent = 'Keine Mannschaft ausgewählt';
+                document.getElementById('team-content').innerHTML = '<p style="color: red;">Bitte wähle eine Mannschaft aus der Übersicht.</p>';
+                return;
+            }
+
+            // Die entsprechende .md-Datei laden
+            fetch(`content/teams/${slug}.md`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Mannschaft nicht gefunden');
+                    }
+                    return response.text();
+                })
+                .then(markdown => {
+                    // Frontmatter (YAML) und Inhalt trennen
+                    const parts = markdown.split('---');
+                    if (parts.length < 3) {
+                        throw new Error('Ungültiges Dateiformat');
+                    }
+                    
+                    const yamlStr = parts[1];
+                    const content = parts.slice(2).join('---').trim();
+                    
+                    // YAML parsen (einfache manuelle Methode)
+                    const yamlLines = yamlStr.split('\n');
+                    const data = {};
+                    yamlLines.forEach(line => {
+                        const match = line.match(/^\s*([^:]+):\s*(.*?)\s*$/);
+                        if (match) {
+                            data[match[1]] = match[2].replace(/^["']|["']$/g, '');
+                        }
+                    });
+
+                    // Titel setzen
+                    document.getElementById('team-title').textContent = data.title || slug;
+
+                    // HTML aus dem Markdown-Inhalt generieren
+                    const htmlContent = marked.parse(content);
+
+                    // Bild (falls vorhanden)
+                    let imageHtml = '';
+                    if (data.image) {
+                        imageHtml = `<img src="${data.image}" alt="${data.title}" class="team-detail-image">`;
+                    }
+
+                    // Spieler-Liste (falls vorhanden)
+                    let playersHtml = '';
+                    if (data.players && Array.isArray(data.players)) {
+                        playersHtml = '<h3>Kader</h3><ul class="player-list">';
+                        data.players.forEach(player => {
+                            playersHtml += `<li><strong>${player.number}</strong> ${player.name} (${player.position})</li>`;
+                        });
+                        playersHtml += '</ul>';
+                    }
+
+                    // Alles zusammenbauen
+                    document.getElementById('team-content').innerHTML = `
+                        ${imageHtml}
+                        <div class="team-detail-content">
+                            ${htmlContent}
+                            ${playersHtml}
+                        </div>
+                    `;
+                })
+                .catch(error => {
+                    document.getElementById('team-title').textContent = 'Fehler';
+                    document.getElementById('team-content').innerHTML = `<p style="color: red;">${error.message}</p>`;
+                });
+        });
+    </script>
+</body>
+</html>
