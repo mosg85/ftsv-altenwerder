@@ -181,7 +181,8 @@
                 return;
             }
 
-            fetch(`content/teams/${slug}.md`)
+            // Hier wird der RAW-Link von GitHub verwendet (funktioniert garantiert!)
+            fetch(`https://raw.githubusercontent.com/mosg85/ftsv-altenwerder/main/content/teams/${slug}.md`)
                 .then(response => {
                     if (!response.ok) throw new Error('Mannschaft nicht gefunden');
                     return response.text();
@@ -215,9 +216,9 @@
                     // Bild-Auswahl (feste Testbilder für 1d/2d)
                     let imgUrl;
                     if (slug === '1d') {
-                        imgUrl = 'https://picsum.photos/id/1043/1200/600';
+                        imgUrl = 'https://picsum.photos/id/1043/1200/600'; // Fußball-Stadion
                     } else if (slug === '2d') {
-                        imgUrl = 'https://picsum.photos/id/164/1200/600';
+                        imgUrl = 'https://picsum.photos/id/164/1200/600'; // Landschaft
                     } else {
                         if (data.image && data.image !== '#' && data.image !== '') {
                             imgUrl = data.image;
