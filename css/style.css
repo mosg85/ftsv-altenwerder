@@ -129,14 +129,18 @@ body {
 .cookie-btn-link { background: transparent; color: var(--secondary); text-decoration: underline; }
 
 /* ===== HERO (ТОЛЬКО ДЛЯ ГЛАВНОЙ) ===== */
+
+
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover fixed;
+    background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.1)), url('../images/jaegerhof_bg.png') left/cover fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
 }
+
 .hero-title {
     font-size: 4rem;
     text-shadow: 0 0 20px var(--secondary);
