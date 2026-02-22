@@ -86,18 +86,27 @@
         </div>
     </section>
 
-    <!-- Schedule -->
-    <section id="schedule" class="schedule">
-        <div class="container">
-            <h2 class="section-title">Ansetzungen & Ergebnisse</h2>
-            <div class="match-list">
-                <div class="match-card"><div class="match-date">[Datum]</div><div class="match-teams">FTSV Altenwerder – [Gegner]</div><div class="match-location"><i class="fas fa-map-marker-alt"></i> Sportpark Jägerhof</div></div>
-                <div class="match-card"><div class="match-date">[Datum]</div><div class="match-teams">[Gegner] – FTSV Altenwerder</div><div class="match-location"><i class="fas fa-map-marker-alt"></i> Auswärts</div></div>
-                <div class="match-card" style="border-left-color: #ffaa00;"><div class="match-date">Letztes Spiel</div><div class="match-teams">FTSV Altenwerder – [Gegner] 3:1</div><div class="match-location"><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Sieg!</div></div>
-            </div>
+<!-- Schedule mit fussball.de Widget -->
+<section id="schedule" class="schedule">
+    <div class="container">
+        <h2 class="section-title">Nächstes Spiel</h2>
+        
+        <!-- fussball.de Widget Script (einmalig) -->
+        <script type="text/javascript" src="https://www.fussball.de/widgets.js"></script>
+        
+        <!-- Widget Container für das nächste Spiel -->
+        <div class="fussballde_widget"
+             data-id="2857ea26-f6a9-4aee-8dda-e6ee2f573c72"
+             data-type="next-match"
+             style="width: 100%">
         </div>
-    </section>
-
+        
+        <!-- Kleiner Hinweis, falls du mehr anzeigen möchtest -->
+        <p style="text-align: center; margin-top: 1.5rem; color: #aaa;">
+            Alle Ergebnisse und Spielpläne gibt es auf <a href="https://www.fussball.de/verein/altenwerder-hamburg/-/id/00ES8GN8I400003SVV0AG08LVUPGND5I" target="_blank" style="color: var(--secondary);">fussball.de</a>.
+        </p>
+    </div>
+</section>
     <!-- Referee -->
     <section id="referee" class="contact" style="background: rgba(255,49,49,0.1);">
         <div class="container">
