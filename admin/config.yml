@@ -1,0 +1,36 @@
+backend:
+  name: git-gateway
+  branch: main # Der Branch, in den geschrieben wird
+
+media_folder: "images/uploads" # Ordner für hochgeladene Bilder (wird automatisch erstellt)
+public_folder: "/images/uploads"
+
+collections:
+  - name: "teams" # Bezeichnung für die Sammlung
+    label: "Mannschaften"
+    folder: "content/teams" # Ordner, in dem die Markdown-Dateien gespeichert werden
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Mannschaftsname", name: "title", widget: "string"}
+      - {label: "Beschreibung", name: "description", widget: "text"}
+      - {label: "Foto", name: "image", widget: "image"}
+      - label: "Spieler"
+        name: "players"
+        widget: "list"
+        fields:
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Nummer", name: "number", widget: "number"}
+          - {label: "Position", name: "position", widget: "string"}
+
+  - name: "matches"
+    label: "Spiele"
+    folder: "content/matches"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Gegner", name: "opponent", widget: "string"}
+      - {label: "Datum", name: "date", widget: "datetime"}
+      - {label: "Ort", name: "location", widget: "string"}
+      - {label: "Ergebnis (z.B. 3:1)", name: "result", widget: "string", required: false}
+      - {label: "Spielbericht", name: "report", widget: "markdown"}
